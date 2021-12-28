@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script src="main.js"></script>
+        <meta charset="UTF-8">
+        <title>Chutes and Ladders</title>
+        <link rel="stylesheet" href="style.css">
+    <body>
+        <img src="https://i.imgur.com/lw1sG30.png" onload="init_canvas" id="bg">
+        <p><strong>Chutes and Ladders</strong></p>
+        <button onclick="main()">Start</button>
+        <input type="range" min="10" max="1000" value="600" onchange="document.getElementById('log_output').innerHTML = 'DELAY: Updated to ' + this.value + '. Might take a sec to update...<br>' + document.getElementById('log_output').innerHTML;" id="speed">
+        <br>
+        <br>
+        <div id="main">
+            <canvas id="canvas"></canvas>
+            <div id="log">
+                <p id="log_output"></p>
+            </div>
+        </div>
+    </body>
+</html>
