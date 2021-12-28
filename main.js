@@ -233,8 +233,7 @@ async function runRound(delay) {
     });
 }
 async function main() {
-    //var output = await runRound(document.getElementById('speed').value);
-    var output = await runRound(0);
+    var output = await runRound(document.getElementById('speed').value);
     var red = output[0];
     var yellow = output[1];
     var green = output[2];
