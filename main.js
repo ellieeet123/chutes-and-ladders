@@ -91,8 +91,15 @@ function getCanvasLocation(space) {
     // translate x and y to canvas coordinates
     y = (y * 50) + 5;
     x = (x * 50) + 5;
-    // return values
-    return [x, y];
+    // return the coordinates on the canvas
+    // since 0 makes the function break, i've hard coded the output
+    if (space == 0) {
+        return [-45, 455];
+    }
+    // otherwise return the normal cordinates
+    else {
+        return [x, y];
+    }
 }
 function endGame() {
     var red    = getPlayerPos(1);
