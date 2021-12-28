@@ -61,9 +61,6 @@ function getMove(player) {
 }
 function init_canvas() {
     var canvas = document.getElementById('canvas');
-    canvas.width = 501;
-    canvas.height = 501;
-    canvas.id = 'canvas';
     var ctx = canvas.getContext('2d');
     ctx.drawImage(document.getElementById('bg'), 0, 0);
 }
@@ -170,11 +167,9 @@ async function processPlayer(player, delay) {
         for (let i = 0; i < spaces.length; i++) {
             try {
                 var start = spaces[i-1];
-                console.log('try');
             }
             catch (err) {
                 var start = getPlayerPos(player);
-                console.log('catch');
             }
             var end = spaces[i];
             init_canvas();
@@ -238,7 +233,8 @@ async function runRound(delay) {
     });
 }
 async function main() {
-    var output = await runRound(document.getElementById('speed').value);
+    //var output = await runRound(document.getElementById('speed').value);
+    var output = await runRound(0);
     var red = output[0];
     var yellow = output[1];
     var green = output[2];
