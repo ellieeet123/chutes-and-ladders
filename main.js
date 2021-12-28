@@ -41,12 +41,12 @@ function getMove(player) {
     if (ladderStarts.includes(pos)) {
         pos = ladderEnds[ladderStarts.indexOf(pos)];
         spaces.push(pos);
-        log = log + '<br>LADDER: Player [' + getPlayerName(player) + '] climbed a ladder to ' + pos;
+        log = 'LADDER: Player [' + getPlayerName(player) + '] climbed a ladder to ' + pos.toString() + '<br>' + log;
     }
     else if (chuteStarts.includes(pos)) {
         pos = chuteEnds[chuteStarts.indexOf(pos)];
         spaces.push(pos);
-        log = log + '<br>CHUTE: Player [' + getPlayerName(player) + '] fell down a chute to ' + pos;
+        log = 'CHUTE: Player [' + getPlayerName(player) + '] fell down a chute to ' + pos.toString() + '<br>' + log;
     }
     for (let i = 0; i < spaces.length; i++) {
         if (spaces[i] > 100) {
