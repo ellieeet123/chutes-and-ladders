@@ -164,15 +164,9 @@ async function processPlayer(player, delay) {
         var moveData = getMove(player);
         var spaces = moveData[0];
         var log = moveData[1];
-        for (let i = 0; i < spaces.length; i++) {
-            try {
-                var start = spaces[i-1];
-            }
-            catch (err) {
-                var start = getPlayerPos(player);
-            }
-            var end = spaces[i];
-            init_canvas();
+        for (let i = 0; i < (spaces.length) - 1; i++) {
+            var start = spaces[i];
+            var end = spaces[i + 1];
             var startx = getCanvasLocation(start)[0];
             var starty = getCanvasLocation(start)[1];
             var endx = getCanvasLocation(end)[0];
