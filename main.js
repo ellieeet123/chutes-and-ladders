@@ -222,7 +222,6 @@ async function runRound(delay) {
     return new Promise(async function(resolve, reject) {
         init_canvas();
         var logUI = document.getElementById('log_output');
-
         var red = await processPlayer(1, delay);
         logUI.innerHTML = red[1] + '<br>' + logUI.innerHTML;
         await wait(delay);
