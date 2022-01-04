@@ -7,6 +7,7 @@ var ladderStarts  = [1,  4,  9,  21, 28, 36, 51, 71, 80 ];
 var ladderEnds =    [38, 14, 31, 42, 84, 44, 67, 91, 100];
 var chuteStarts =   [16, 49, 62, 87, 47, 56, 64, 93, 95, 98];
 var chuteEnds   =   [6,  11, 19, 24, 26, 53, 60, 73, 75, 78];
+var roundCount = 0;
 function roll() {
     var roll = Math.floor(Math.random() * 6) + 1;
     if (roll > 6) {
@@ -127,7 +128,8 @@ function endGame() {
         Winner: ${winner}<br>
         Second: ${second}<br>
         Third: ${third}<br>
-        Fourth: ${fourth}<br><br><br>
+        Fourth: ${fourth}<br>
+        Total Rounds: ${roundCount}<br><br><br>
     `;
     document.getElementById('log_output').innerHTML = html + document.getElementById('log_output').innerHTML;
     console.log('1st: '+winner+', 2nd: '+second+', 3rd: '+third+', fourth: '+fourth);
@@ -250,6 +252,7 @@ async function runRound(delay) {
     });
 }
 async function main() {
+    roundCount += 1;
     var output = await runRound(document.getElementById('speed').value);
     var red = output[0];
     var yellow = output[1];
