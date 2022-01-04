@@ -218,19 +218,27 @@ async function runRound(delay) {
     return new Promise(async function(resolve, reject) {
         init_canvas();
         var logUI = document.getElementById('log_output');
+        
         var red = await processPlayer(1, delay);
         logUI.innerHTML = red[1] + '<br>' + logUI.innerHTML;
+        if (red[0]) resolve([true,false,false,false]);
         await wait(delay);
+
         var yellow = await processPlayer(2, delay);
         logUI.innerHTML = yellow[1] + '<br>' + logUI.innerHTML;
+        if (yellow[0]) resolve([false,true,false,false]);
         await wait(delay);
+
         var green = await processPlayer(3, delay);
         logUI.innerHTML = green[1] + '<br>' + logUI.innerHTML;
+        if (green[0]) resolve([false,false,true,false]);
         await wait(delay);
+
         var blue = await processPlayer(4, delay);
         logUI.innerHTML = blue[1] + '<br>' + logUI.innerHTML;
+        if (blue[0]) resolve([false,false,false,true]);
         await wait(delay);
-        resolve([red[0], yellow[0], green[0], blue[0]]);
+        resolve([false,false,false,false]);
     });
 }
 async function main() {
